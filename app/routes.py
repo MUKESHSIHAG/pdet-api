@@ -12,41 +12,42 @@ def index():
 
 @app.route('/get_result', methods=['GET'])
 def get_result():
-    knee_ax = int(request.args.get("knee_ax"))
-    knee_ay = int(request.args.get("knee_ay"))
-    knee_az = int(request.args.get("knee_az"))
-    knee_gx = int(request.args.get("knee_gx"))
-    knee_gy = int(request.args.get("knee_gy"))
-    knee_gz = int(request.args.get("knee_gz"))
-    back_ax = int(request.args.get("back_ax"))
-    back_ay = int(request.args.get("back_ay"))
-    back_az = int(request.args.get("back_az"))
-    back_gx = int(request.args.get("back_gx"))
-    back_gy = int(request.args.get("back_gy"))
-    back_gz = int(request.args.get("back_gz"))
-    chest_ax = int(request.args.get("chest_ax"))
-    chest_ay = int(request.args.get("chest_ay"))
-    chest_az = int(request.args.get("chest_az"))
-    chest_gx = int(request.args.get("chest_gx"))
-    chest_gy = int(request.args.get("chest_gy"))
-    chest_gz = int(request.args.get("chest_gz"))
-    position = request.args.get("position")
-    sitting = 0
-    standing = 0
-    lying = 0
-    print(type(knee_ax))
-    print(knee_ax,knee_ay,knee_az,knee_gx,knee_gy,knee_gz)
-    print(back_ax,back_ay,back_az,back_gx,back_gy,back_gz)
-    print(chest_ax,chest_ay,chest_az,chest_gx,chest_gy,chest_gz)
-    if position=='sitting': sitting=1
-    elif position=='standing': standing=1
-    else: lying=1
-    res = check_health(knee_ax, knee_ay, knee_az, knee_gx, knee_gy, knee_gz, back_ax, back_ay, back_az, back_gx, back_gy, back_gz, chest_ax, chest_ay, chest_az, chest_gx, chest_gy, chest_gz, lying, sitting, standing)
-    print(res)
-    posture = "UnHealthy"
-    if res==0:
-        posture="healthy"
-    return {"result": posture, "msg": "Success"}
+    return {"result": "Healthy", "msg": "Success"}
+    # knee_ax = int(request.args.get("knee_ax"))
+    # knee_ay = int(request.args.get("knee_ay"))
+    # knee_az = int(request.args.get("knee_az"))
+    # knee_gx = int(request.args.get("knee_gx"))
+    # knee_gy = int(request.args.get("knee_gy"))
+    # knee_gz = int(request.args.get("knee_gz"))
+    # back_ax = int(request.args.get("back_ax"))
+    # back_ay = int(request.args.get("back_ay"))
+    # back_az = int(request.args.get("back_az"))
+    # back_gx = int(request.args.get("back_gx"))
+    # back_gy = int(request.args.get("back_gy"))
+    # back_gz = int(request.args.get("back_gz"))
+    # chest_ax = int(request.args.get("chest_ax"))
+    # chest_ay = int(request.args.get("chest_ay"))
+    # chest_az = int(request.args.get("chest_az"))
+    # chest_gx = int(request.args.get("chest_gx"))
+    # chest_gy = int(request.args.get("chest_gy"))
+    # chest_gz = int(request.args.get("chest_gz"))
+    # position = request.args.get("position")
+    # sitting = 0
+    # standing = 0
+    # lying = 0
+    # print(type(knee_ax))
+    # print(knee_ax,knee_ay,knee_az,knee_gx,knee_gy,knee_gz)
+    # print(back_ax,back_ay,back_az,back_gx,back_gy,back_gz)
+    # print(chest_ax,chest_ay,chest_az,chest_gx,chest_gy,chest_gz)
+    # if position=='sitting': sitting=1
+    # elif position=='standing': standing=1
+    # else: lying=1
+    # res = check_health(knee_ax, knee_ay, knee_az, knee_gx, knee_gy, knee_gz, back_ax, back_ay, back_az, back_gx, back_gy, back_gz, chest_ax, chest_ay, chest_az, chest_gx, chest_gy, chest_gz, lying, sitting, standing)
+    # print(res)
+    # posture = "UnHealthy"
+    # if res==0:
+    #     posture="healthy"
+    # return {"result": posture, "msg": "Success"}
 
 
 def check_health(knee_ax, knee_ay, knee_az, knee_gx, knee_gy, knee_gz, back_ax, back_ay, back_az, back_gx, back_gy, back_gz, chest_ax, chest_ay, chest_az, chest_gx, chest_gy, chest_gz, lying, sitting, standing):
